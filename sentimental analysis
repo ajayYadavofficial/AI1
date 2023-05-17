@@ -1,0 +1,20 @@
+import numpy as np
+import pandas as pd
+import nltk
+#download vader from nltk
+nltk.download('vader_lexicon')
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+#creating an object of sentiment intensity analyzer
+sia= SentimentIntensityAnalyzer()
+#uploading csv file
+from google.colab import files
+uploaded = files.upload()
+#reading csv file
+df = pd.read_csv(io.BytesIO(uploaded['reviews.csv']))
+df.head()
+Polarity_scores: This function returns the sentiment strength based on the given input statement/text.
+
+For example:
+
+text= "Bobby is an amazing guy"
+sia.polarity_scores(text)
