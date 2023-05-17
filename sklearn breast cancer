@@ -1,0 +1,29 @@
+from sklearn import datasets
+from sklearn.linear_model import LogisticRegression
+
+
+cancer_ds = datasets.load_breast_cancer()
+cancer_ds
+
+# it is a binary classification problem
+
+
+clf = LogisticRegression()
+clf.fit(cancer_ds.data, cancer_ds.target)
+
+
+cancer_ds.data.shape
+clf.predict(cancer_ds.data)
+
+
+#score
+clf.score(cancer_ds.data, cancer_ds.target)
+
+
+# mistakes
+
+clf.predict(cancer_ds.data) - cancer_ds.target
+
+# function to determine actual hypothesis values
+
+clf.predict_proba(cancer_ds.data)
